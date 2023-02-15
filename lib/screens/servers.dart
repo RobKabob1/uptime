@@ -1,45 +1,36 @@
 import 'package:flutter/material.dart';
 
 class Servers extends StatefulWidget {
-  const Servers({super.key, required this.title});
-
-  final String title;
+  const Servers({super.key, required String title});
 
   @override
   State<Servers> createState() => _ServersState();
 }
 
 class _ServersState extends State<Servers> {
-  int _selectedIndex = 1;
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: const Center(
-          child: Text("Servers"),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.phonelink_setup_sharp),
-              label: 'Server Setup',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.computer),
-              label: 'Servers',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.cyan,
-          onTap: _onItemTapped,
-        ));
+    return Center(
+      child: ListView(
+        padding: EdgeInsets.all(9),
+        children: <Widget>[
+          Container(
+            height: 50,
+            color: Colors.cyan[600],
+            child: const Center(child: Text('Entry A')),
+          ),
+          Container(
+            height: 50,
+            color: Colors.cyan[500],
+            child: const Center(child: Text('Entry B')),
+          ),
+          Container(
+            height: 50,
+            color: Colors.cyan[100],
+            child: const Center(child: Text('Entry C')),
+          ),
+        ],
+      ),
+    );
   }
 }
