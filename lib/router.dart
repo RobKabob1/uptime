@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:uptime/screens/homepage.dart';
+import 'package:uptime/screens/servers.dart';
 import 'package:uptime/screens/serversetup.dart';
 
 final GoRouter router1 = GoRouter(
@@ -9,7 +10,7 @@ final GoRouter router1 = GoRouter(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
         return const Home(
-          title: 'Servers',
+          title: 'Home',
         );
       },
       routes: <RouteBase>[
@@ -17,6 +18,12 @@ final GoRouter router1 = GoRouter(
           path: 'serversetup',
           builder: (BuildContext context, GoRouterState state) {
             return const ServerSetup(title: 'ServerSetup');
+          },
+        ),
+        GoRoute(
+          path: 'servers',
+          builder: (BuildContext context, GoRouterState state) {
+            return const Servers(title: 'Servers');
           },
         ),
       ],

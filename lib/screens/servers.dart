@@ -12,7 +12,7 @@ class _ServersState extends State<Servers> {
   Widget build(BuildContext context) {
     return Center(
       child: ListView(
-        padding: EdgeInsets.all(9),
+        padding: const EdgeInsets.all(9),
         children: <Widget>[
           Container(
             height: 50,
