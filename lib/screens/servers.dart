@@ -10,6 +10,13 @@ class Servers extends StatefulWidget {
 }
 
 class _ServersState extends State<Servers> {
+  int _selectedIndex = 1;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +24,7 @@ class _ServersState extends State<Servers> {
           title: Text(widget.title),
         ),
         body: const Center(
-          child: Text("banana"),
+          child: Text("Servers"),
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
@@ -30,6 +37,9 @@ class _ServersState extends State<Servers> {
               label: 'Servers',
             ),
           ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.cyan,
+          onTap: _onItemTapped,
         ));
   }
 }
