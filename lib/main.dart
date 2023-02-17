@@ -1,22 +1,31 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:uptime/router.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: "AIzaSyAlv1IYkxu9tmYotytakEV5UQfr0MX5wx8",
+      appId: "1:302903695246:web:4a88eb6912efb9a725f6df",
+      messagingSenderId: "302903695246",
+      projectId: "demoscreens2",
+    ),
+  );
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: router1,
       debugShowCheckedModeBanner: false,
-      title: 'Uptime',
       theme: ThemeData(
-        primarySwatch: Colors.cyan,
+        primarySwatch: Colors.orange,
       ),
+      routerConfig: router1,
     );
   }
 }

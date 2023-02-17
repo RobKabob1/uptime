@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uptime/screens/servers.dart';
-import 'package:uptime/screens/serversetup.dart';
+import 'package:uptime/screens/accountsetup.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key, required this.title});
@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
 
     switch (_selectedIndex) {
       case 0:
-        child = const ServerSetup(title: 'Server Setup');
+        child = const AccountSetup(title: 'Account Setup');
         break;
       case 1:
         child = const Servers(title: 'Servers');
@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.phonelink_setup_sharp),
-              label: 'Server Setup',
+              label: 'Account Setup',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.computer),
