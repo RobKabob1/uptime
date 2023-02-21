@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:uptime/providers/loginauthprovider.dart';
 import 'package:uptime/router.dart';
 
 Future<void> main() async {
@@ -20,12 +22,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
+    return ChangeNotifierProvider(
+      create: (BuildContext context) => LoginAuthProvider(),
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.orange,
+        ),
+        routerConfig: router1,
       ),
-      routerConfig: router1,
     );
   }
 }

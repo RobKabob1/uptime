@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:uptime/screens/homepage.dart';
 import 'package:uptime/screens/widget_tree.dart';
 import 'package:uptime/screens/servers.dart';
 import 'package:uptime/screens/accountsetup.dart';

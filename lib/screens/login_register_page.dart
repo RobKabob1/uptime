@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:uptime/screens/auth.dart';
+import 'package:provider/provider.dart';
+import 'package:uptime/providers/loginauthprovider.dart';
+import 'package:uptime/widgets/entry_field.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,80 +11,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String? errorMessage = '';
-  bool isLogin = true;
-
-  final TextEditingController _controllerEmail = TextEditingController();
-  final TextEditingController _controllerPassword = TextEditingController();
-
-  Future<void> signInWithEmailAndPassword() async {
-    try {
-      await Auth().signInWithEmailAndPassword(
-          email: _controllerEmail.text, password: _controllerPassword.text);
-    } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message;
-      });
-    }
-  }
-
-  Future<void> createUserWithEmailAndPassword() async {
-    try {
-      await Auth().createUserWithEmailAndPassword(
-        email: _controllerEmail.text,
-        password: _controllerPassword.text,
-      );
-    } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message;
-      });
-    }
-  }
-
-  Widget _title() {
-    return const Text('Firebase Auth');
-  }
-
-  Widget _entryField(
-    String title,
-    TextEditingController controller,
-  ) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        labelText: title,
-      ),
-    );
-  }
-
-  Widget _errorMessage() {
-    return Text(errorMessage == '' ? '' : 'Humm ? $errorMessage');
-  }
-
-  Widget _submitButton() {
-    return ElevatedButton(
-      onPressed:
-          isLogin ? signInWithEmailAndPassword : createUserWithEmailAndPassword,
-      child: Text(isLogin ? 'Login' : 'Register'),
-    );
-  }
-
-  Widget _loginOrRegisterButton() {
-    return TextButton(
-      onPressed: () {
-        setState(() {
-          isLogin = !isLogin;
-        });
-      },
-      child: Text(isLogin ? 'Register instead' : 'Login instead'),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+    var appState = context.watch<LoginAuthProvider>();
     return Scaffold(
       appBar: AppBar(
-        title: _title(),
+        title: const Text('Auth'),
       ),
       body: Container(
         height: double.infinity,
@@ -93,11 +26,25 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            _entryField('email', _controllerEmail),
-            _entryField('password', _controllerPassword),
-            _errorMessage(),
-            _submitButton(),
-            _loginOrRegisterButton(),
+            EntryField(title: 'email', controller: appState.controllerEmail),
+            EntryField(
+              title: 'password',
+              controller: appState.controllerPassword,
+            ),
+            Text(appState.errorMessage == ''
+                ? ''
+                : 'Humm ? $appState.errorMessage'),
+            ElevatedButton(
+              onPressed: () => appState.isLogin
+                  ? appState.signInWithEmailAndPassword()
+                  : appState.createUserWithEmailAndPassword(),
+              child: Text(appState.isLogin ? 'Login' : 'Register'),
+            ),
+            TextButton(
+              onPressed: () => appState.loginPressed(),
+              child:
+                  Text(appState.isLogin ? 'Register instead' : 'Login instead'),
+            ),
           ],
         ),
       ),

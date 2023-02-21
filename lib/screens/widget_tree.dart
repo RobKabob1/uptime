@@ -1,4 +1,4 @@
-import 'package:uptime/screens/auth.dart';
+import 'package:uptime/utilities/auth.dart';
 import 'package:uptime/screens/authpage.dart';
 import 'package:uptime/screens/login_register_page.dart';
 import 'package:flutter/material.dart';
