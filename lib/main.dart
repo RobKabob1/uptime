@@ -1,16 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:uptime/firebase_options.dart';
 import 'package:uptime/router.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: const FirebaseOptions(
-      apiKey: "AIzaSyAlv1IYkxu9tmYotytakEV5UQfr0MX5wx8",
-      appId: "1:302903695246:web:4a88eb6912efb9a725f6df",
-      messagingSenderId: "302903695246",
-      projectId: "demoscreens2",
-    ),
+    options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
 }

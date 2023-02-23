@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:uptime/screens/homepage.dart';
-import 'package:uptime/screens/widget_tree.dart';
+import 'package:uptime/auth/auth_gate.dart';
 import 'package:uptime/screens/servers.dart';
 import 'package:uptime/screens/accountsetup.dart';
 
@@ -10,7 +9,7 @@ final GoRouter router1 = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const WidgetTree();
+        return const AuthGate();
       },
       routes: <RouteBase>[
         GoRoute(

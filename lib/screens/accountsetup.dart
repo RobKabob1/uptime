@@ -1,16 +1,28 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutterfire_ui/auth.dart';
+import 'package:go_router/go_router.dart';
 
-class AccountSetup extends StatefulWidget {
+class AccountSetup extends StatelessWidget {
   const AccountSetup({super.key, required String title});
 
   @override
-  State<AccountSetup> createState() => _AccountSetupState();
-}
-
-class _AccountSetupState extends State<AccountSetup> {
-  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: ProfileScreen(
+        actions: [
+          SignedOutAction((context) {
+            GoRoute(
+              path: '/',
+            );
+          })
+        ],
+        children: const [
+          Divider(),
+          Padding(
+            padding: EdgeInsets.all(2),
+          ),
+        ],
+      ),
+    );
   }
 }
