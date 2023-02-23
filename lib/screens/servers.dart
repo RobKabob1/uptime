@@ -16,18 +16,20 @@ class _ServersState extends State<Servers> {
         children: <Widget>[
           Container(
             height: 50,
-            color: Colors.cyan[600],
-            child: const Center(child: Text('Entry A')),
+            color: Theme.of(context).colorScheme.primary,
+            child: const Center(child: Text('Server 1 Placeholder')),
           ),
+          const Padding(padding: EdgeInsets.all(5)),
           Container(
             height: 50,
-            color: Colors.cyan[500],
-            child: const Center(child: Text('Entry B')),
+            color: Theme.of(context).colorScheme.primary,
+            child: const Center(child: Text('Server 2 Placeholder')),
           ),
+          const Padding(padding: EdgeInsets.all(5)),
           Container(
             height: 50,
-            color: Colors.cyan[100],
-            child: const Center(child: Text('Entry C')),
+            color: Theme.of(context).colorScheme.primary,
+            child: const Center(child: Text('Server 3 Placeholder')),
           ),
         ],
       ),
