@@ -24,7 +24,7 @@ class AuthGate extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 child: AspectRatio(
                   aspectRatio: 1,
-                  child: Image.asset('uptime.jpg'),
+                  child: Image.asset('images/uptime.jpg'),
                 ),
               );
             },
@@ -41,7 +41,7 @@ class AuthGate extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 child: AspectRatio(
                   aspectRatio: 1,
-                  child: Image.asset('uptime.jpg', fit: BoxFit.fill),
+                  child: Image.asset('images/uptime.jpg', fit: BoxFit.fill),
                 ),
               );
             },
