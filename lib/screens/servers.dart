@@ -79,29 +79,5 @@ class _ServersState extends State<Servers> {
         child: const Icon(Icons.add),
       ),
     );
-    // return Center(
-    //   child: ListView(
-    //     padding: const EdgeInsets.all(9),
-    //     children: <Widget>[
-    //       Container(
-    //         height: 50,
-    //         color: Theme.of(context).colorScheme.primary,
-    //         child: const Center(child: Text('Server 1 Placeholder')),
-    //       ),
-    //       const Padding(padding: EdgeInsets.all(5)),
-    //       Container(
-    //         height: 50,
-    //         color: Theme.of(context).colorScheme.primary,
-    //         child: const Center(child: Text('Server 2 Placeholder')),
-    //       ),
-    //       const Padding(padding: EdgeInsets.all(5)),
-    //       Container(
-    //         height: 50,
-    //         color: Theme.of(context).colorScheme.primary,
-    //         child: const Center(child: Text('Server 3 Placeholder')),
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }
