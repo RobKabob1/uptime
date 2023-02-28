@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uptime/screens/servers.dart';
-import 'package:uptime/screens/accountsetup.dart';
+import 'package:uptime/screens/account_setup.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key, required this.title});

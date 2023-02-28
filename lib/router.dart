@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:uptime/auth/auth_gate.dart';
 import 'package:uptime/screens/servers.dart';
-import 'package:uptime/screens/accountsetup.dart';
+import 'package:uptime/screens/account_setup.dart';
 
 final GoRouter router1 = GoRouter(
   routes: <RouteBase>[
