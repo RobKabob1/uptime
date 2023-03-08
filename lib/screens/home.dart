@@ -14,14 +14,16 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _selectedIndex = 1;
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    setState(
+      () {
+        _selectedIndex = index;
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget child = Container();
+    Widget child;
 
     switch (_selectedIndex) {
       case 0:
@@ -30,26 +32,29 @@ class _HomeState extends State<Home> {
       case 1:
         child = const Servers(title: 'Servers');
         break;
+      default:
+        child = Container();
     }
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: SizedBox.expand(child: child),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.phonelink_setup_sharp),
-              label: 'Account Setup',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.computer),
-              label: 'Servers',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.cyan,
-          onTap: _onItemTapped,
-        ));
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: SizedBox.expand(child: child),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.phonelink_setup_sharp),
+            label: 'Account Setup',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.computer),
+            label: 'Servers',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.cyan,
+        onTap: _onItemTapped,
+      ),
+    );
   }
 }

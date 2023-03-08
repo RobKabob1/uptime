@@ -34,11 +34,27 @@ class _ServersState extends ConsumerState<Servers> {
                         notifier.items[index],
                         style: const TextStyle(fontSize: 24),
                       ),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.delete),
-                        onPressed: () {
-                          notifier.removeItem(index);
-                        },
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.edit),
+                            onPressed: () {
+                              showDialog<void>(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return ServerDialog(index: index);
+                                },
+                              );
+                            },
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.delete),
+                            onPressed: () {
+                              notifier.removeItem(index);
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),

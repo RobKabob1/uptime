@@ -15,8 +15,17 @@ class ServersNotifier extends ChangeNotifier {
     _items.insert(0, item);
     _key.currentState!.insertItem(
       0,
-      duration: const Duration(seconds: 1),
+      duration: const Duration(milliseconds: 600),
     );
+
+    //TODO add to database
+  }
+
+  void editItem(item, index) {
+    _items[index] = item;
+    notifyListeners();
+
+    //TODO edit entry in database
   }
 
   void removeItem(int index) {
@@ -33,8 +42,10 @@ class ServersNotifier extends ChangeNotifier {
           ),
         );
       },
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 600),
     );
     _items.removeAt(index);
+
+    //TODO remove from database
   }
 }
