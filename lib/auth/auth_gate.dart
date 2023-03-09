@@ -20,11 +20,11 @@ class AuthGate extends StatelessWidget {
                       '831484884477-nvrfoo66mscv7qa0ka0rtbgkg8c7v2mo.apps.googleusercontent.com'),
             ],
             headerBuilder: (context, constraints, shrinkOffset) {
-              return Padding(
-                padding: const EdgeInsets.all(20),
-                child: AspectRatio(
-                  aspectRatio: 1,
-                  child: Image.asset('images/uptime.jpg'),
+              return AspectRatio(
+                aspectRatio: 1,
+                child: FadeInImage.assetNetwork(
+                  placeholder: 'images/loading.gif',
+                  image: 'images/computer_transparent.png',
                 ),
               );
             },
@@ -32,17 +32,15 @@ class AuthGate extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: action == AuthAction.signIn
-                    ? const Text('Welcome to Uptime, please sign in!')
-                    : const Text('Welcome to Uptime, please register!'),
+                    ? const Text('Welcome to Uptime Champ, please sign in!')
+                    : const Text('Welcome to Uptime Champ, please register!'),
               );
             },
             sideBuilder: (context, shrinkOffset) {
-              return Padding(
-                padding: const EdgeInsets.all(20),
-                child: AspectRatio(
-                  aspectRatio: 1,
-                  child: Image.asset('images/uptime.jpg', fit: BoxFit.fill),
-                ),
+              return AspectRatio(
+                aspectRatio: 1,
+                child: Image.asset('images/computer_transparent.png',
+                    fit: BoxFit.fill),
               );
             },
           );

@@ -27,9 +27,16 @@ class _ServersState extends ConsumerState<Servers> {
                   key: UniqueKey(),
                   sizeFactor: animation,
                   child: Card(
-                    margin: const EdgeInsets.all(10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                     color: Colors.orangeAccent,
                     child: ListTile(
+                      //TODO add column widget to put in chart showing uptime for past X time
+
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(90),
+                      ),
                       title: Text(
                         notifier.items[index],
                         style: const TextStyle(fontSize: 24),
@@ -37,6 +44,7 @@ class _ServersState extends ConsumerState<Servers> {
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
+                          //TODO add color of tile basede on status up or down via last ping
                           IconButton(
                             icon: const Icon(Icons.edit),
                             onPressed: () {
