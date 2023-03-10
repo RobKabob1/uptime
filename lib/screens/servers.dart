@@ -37,7 +37,7 @@ class _ServersState extends ConsumerState<Servers> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(90),
                       ),
-                      title: Text(
+                      title: SelectableText(
                         notifier.items[index],
                         style: const TextStyle(fontSize: 24),
                       ),

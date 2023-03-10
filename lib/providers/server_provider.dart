@@ -15,7 +15,7 @@ class ServersNotifier extends ChangeNotifier {
     _items.insert(0, item);
     _key.currentState!.insertItem(
       0,
-      duration: const Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 200),
     );
 
     //TODO add to database
@@ -34,15 +34,10 @@ class ServersNotifier extends ChangeNotifier {
       (_, animation) {
         return SizeTransition(
           sizeFactor: animation,
-          child: const ListTile(
-            title: Text(
-              "Deleted",
-              style: TextStyle(fontSize: 24),
-            ),
-          ),
+          child: const ListTile(),
         );
       },
-      duration: const Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 200),
     );
     _items.removeAt(index);
 

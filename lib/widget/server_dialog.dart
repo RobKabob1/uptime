@@ -22,7 +22,14 @@ class ServerDialog extends ConsumerWidget {
           children: [
             const Text('Please put in the server name or IP address'),
             TextField(
+              autofocus: true,
               controller: controller,
+              onSubmitted: (text) {
+                index != null
+                    ? notifier.editItem(controller.text, index)
+                    : notifier.addItem(controller.text);
+                Navigator.of(context).pop();
+              },
             ),
           ],
         ),
