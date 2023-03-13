@@ -18,16 +18,18 @@ class _ServersState extends ConsumerState<Servers> {
   @override
   Widget build(BuildContext context) {
     final notifier = ref.watch(serversProvider);
+
     return FutureBuilder(
       future: response,
       builder: (context, snapshot) {
+        notifier.countries = snapshot.data;
         return Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(top: 16),
-                child: Text('Result: ${snapshot.data}'),
+                child: Text('Result: ${notifier.countries}'),
               ),
             ],
           ),
