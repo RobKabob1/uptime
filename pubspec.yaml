@@ -19,6 +19,7 @@ dependencies:
   flutterfire_ui: ^0.4.3+20
   flutter_riverpod: ^2.2.0
   flutter_launcher_icons: ^0.12.0
+  supabase_flutter: ^1.5.0
 
 dev_dependencies:
   flutter_test:

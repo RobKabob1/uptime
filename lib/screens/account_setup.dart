@@ -10,11 +10,13 @@ class AccountSetup extends StatelessWidget {
     return Scaffold(
       body: ProfileScreen(
         actions: [
-          SignedOutAction((context) {
-            GoRoute(
-              path: '/',
-            );
-          })
+          SignedOutAction(
+            (context) {
+              GoRoute(
+                path: '/',
+              );
+            },
+          ),
         ],
         children: const [
           Divider(),

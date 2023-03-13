@@ -16,6 +16,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 1;
+
   void _onItemTapped(int index) {
     setState(
       () {
@@ -41,6 +42,7 @@ class _HomeState extends State<Home> {
       default:
         child = Container();
     }
+
     return Scaffold(
       appBar: AppBar(
         shape: const RoundedRectangleBorder(

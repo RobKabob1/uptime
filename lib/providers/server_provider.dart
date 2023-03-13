@@ -7,6 +7,7 @@ final serversProvider =
 class ServersNotifier extends ChangeNotifier {
   final _items = [];
   final GlobalKey<AnimatedListState> _key = GlobalKey();
+  var blah;
 
   get items => _items;
   GlobalKey<AnimatedListState> get key => _key;

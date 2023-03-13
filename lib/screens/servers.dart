@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uptime/providers/server_provider.dart';
 import 'package:uptime/widget/server_dialog.dart';
 
@@ -14,6 +15,22 @@ class _ServersState extends ConsumerState<Servers> {
   @override
   Widget build(BuildContext context) {
     final notifier = ref.watch(serversProvider);
+    // return FutureBuilder(
+    //   future: Future._nullFuture,
+    //   builder: (context, snapshot) {
+    //     return Center(
+    //       child: Column(
+    //         mainAxisAlignment: MainAxisAlignment.center,
+    //         children: <Widget>[
+    //           Padding(
+    //             padding: const EdgeInsets.only(top: 16),
+    //             child: Text('Result: ${snapshot.data}'),
+    //           ),
+    //         ],
+    //       ),
+    //     );
+    //   },
+    // );
     return Scaffold(
       body: Column(
         children: [
@@ -39,7 +56,7 @@ class _ServersState extends ConsumerState<Servers> {
                       ),
                       title: SelectableText(
                         notifier.items[index],
-                        style: const TextStyle(fontSize: 24),
+                        style: const TextStyle(fontSize: 20),
                       ),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -47,13 +64,18 @@ class _ServersState extends ConsumerState<Servers> {
                           //TODO add color of tile basede on status up or down via last ping
                           IconButton(
                             icon: const Icon(Icons.edit),
-                            onPressed: () {
-                              showDialog<void>(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return ServerDialog(index: index);
-                                },
-                              );
+                            // onPressed: () {
+                            //   showDialog<void>(
+                            //     context: context,
+                            //     builder: (BuildContext context) {
+                            //       return ServerDialog(index: index);
+                            //     },
+                            //   );
+                            // },
+                            onPressed: () async {
+                              notifier.blah = await Supabase.instance.client
+                                  .from('countries')
+                                  .select('name');
                             },
                           ),
                           IconButton(
@@ -81,6 +103,7 @@ class _ServersState extends ConsumerState<Servers> {
             },
           );
         },
+        autofocus: true,
         child: const Icon(Icons.add),
       ),
     );
